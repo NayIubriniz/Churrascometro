@@ -23,9 +23,9 @@ function calcular(){
     let qtdBebidas = bebidaPorPessoa(duracao) * qtdAdultos + (bebidaPorPessoa(duracao) / 2 * qtdCriancas);
 
 
-    resultado.innerHTML = `<p><span>${qtdCarne}g</span> de Carne</P>`;
-    resultado.innerHTML += `<p><span>${qtdCerveja}ml</span> de Cerveja</p>`;
-    resultado.innerHTML += `<p><span>${qtdBebidas}ml</span> de Bebidas</p>`;
+    resultado.innerHTML = `<p><span>${qtdCarne}kg</span> de Carne</P>`;
+    resultado.innerHTML += `<p><span>${Math.ceil(qtdCerveja / 355)}ml</span> de Cerveja</p>`;
+    resultado.innerHTML += `<p><span>${Math.ceil(qtdBebidas / 2000)}ml</span> Garrafas de Refri 2l</p>`;
 })
     
 
