@@ -11,6 +11,10 @@ body{
     margin: 0 auto;
     height: 100vh;
     background-color: #000;
+    background: url(img/churrasco-img.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .container{
     display: flex;
@@ -20,7 +24,7 @@ body{
     width: 450px;
     height: 50vh;
     margin: 0 auto;
-    background-color: brown;
+    background-color: rgba(105, 24, 24, 0.747);
     border-radius: 2px;
 }
 h1{
