@@ -12,44 +12,33 @@ let button = document.getElementById('btn');
 let resultado = document.getElementById('resultado');
 
 function calcular(){
-    button.addEventListener('click', () =>{  
-    
-    let qtdAdultos = adultosInput.value;
-    let qtdCriancas = criancasInput.value;
-    let duracao = duracaoInput.value;
 
+    //Obtendo valores dos inputs 
+    let qtdAdultos = parseInt(adultosInput.value) || 0;
+    let qtdCriancas = parseInt(criancasInput.value) || 0;
+    let duracao = parseInt(duracaoInput.value) || 0;
+
+    //Calculo das quantidades
     let qtdCarne =  carnePorPessoa(duracao) * qtdAdultos + (carnePorPessoa(duracao) / 2 * qtdCriancas);
     let qtdCerveja = cervejaPorPessoa(duracao) * qtdAdultos ;
     let qtdBebidas = bebidaPorPessoa(duracao) * qtdAdultos + (bebidaPorPessoa(duracao) / 2 * qtdCriancas);
 
 
-    resultado.innerHTML = `<p><span>${qtdCarne}kg</span> de Carne</P>`;
-    resultado.innerHTML += `<p><span>${Math.ceil(qtdCerveja / 355)}ml</span> de Cerveja</p>`;
-    resultado.innerHTML += `<p><span>${Math.ceil(qtdBebidas / 2000)}ml</span> Garrafas de Refri 2l</p>`;
-})
+    resultado.innerHTML = `<p><span>${(qtdCarne / 1000).toFixed(2)}kg:</span> de Carne</p>`;
+    resultado.innerHTML += `<p><span>${Math.ceil(qtdCerveja / 355)}ml:</span> de Latas de Cerveja (355ml)</p>`;
+    resultado.innerHTML += `<p><span>${Math.ceil(qtdBebidas / 2000)}ml:</span> de Garrafas de Refri 2L</p>`;
+
     
 
 function carnePorPessoa(duracao){
-        if(duracao >= 6){
-            return 650;
-        }else{
-            return 400;
-        }
+       return duracao >= 6 ? 650 : 400;
     }
     function cervejaPorPessoa(duracao){
-        if(duracao >= 6){
-            return 2000;
-        }else{
-            return 1200;
-        }
+      return duracao >= 6 ? 2000 : 1200;
     }
     function bebidaPorPessoa(duracao){
-        if(duracao >= 6){
-            return 1500;
-        }else{
-            return 1000;
+     return duracao >= 6 ? 1500 : 1000;
         }
     }
 
-}
-calcular();
+button.addEventListener('click',calcular);
